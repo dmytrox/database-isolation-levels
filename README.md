@@ -14,10 +14,10 @@ make up
 
 | Isolation level (Read phenomena) | Dirty reads | Lost updates | Non-repeatable reads | Phantom reads | Serialization anomaly |
 | :----------------------------- | :---------: | :----------: | :------------------: | :-----------: | :-------------------: |
-| Read Uncommitted               |    true     |     true     |         true         |     true      |         true          |
-| Read Committed                 |    false    |     true     |         true         |     false     |         true          |
-| Repeatable Read                |    false    |     true     |         true         |     false     |         true          |
-| Serializable                   |    false    |    false     |        false         |     false     |         false         |
+| Read Uncommitted               |    1     |     1     |         1         |     1      |         1          |
+| Read Committed                 |    0    |     1     |         1         |     0     |         1          |
+| Repeatable Read                |    0    |     1     |         1         |     0     |         1          |
+| Serializable                   |    0    |    0     |        0         |     0     |         0         |
 
 ## PostgreSQL
 
@@ -25,6 +25,6 @@ make up
 
 | Isolation level (Read phenomena)    | Dirty reads | Lost updates | Non-repeatable reads | Phantom reads | Serialization anomaly |
 | :-------------------------------- | :---------: | :----------: | :------------------: | :-----------: | :-------------------: |
-| Read Committed (Read Uncommitted) |    false    |     true     |         true         |     true      |         true          |
-| Repeatable Read                   |    false    |     true     |        false         |     false     |         true          |
-| Serializable                      |    false    |    false     |        false         |     false     |         false         |
+| Read Committed (Read Uncommitted) |    0    |     1     |         1         |     1      |         1          |
+| Repeatable Read                   |    0    |     1     |        0         |     0     |         1          |
+| Serializable                      |    0    |    0     |        0         |     0     |         0         |
