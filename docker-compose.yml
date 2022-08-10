@@ -1,0 +1,32 @@
+services:
+  postgres:
+    container_name: dbil_postgres
+    image: postgres:latest
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./postgres/init:/docker-entrypoint-initdb.d:ro
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: Qwerty123
+      PGPORT: 5432
+      PGUSER: admin
+      PGPASSWORD: Qwerty123
+      PGDATA: /var/lib/postgresql/data/pgdata
+  percona:
+    container_name: dbil_percona
+    image: percona:latest
+    volumes:
+      - percona-data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: transactions
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: Qwerty123
+
+volumes:  
+  postgres-data: {}
+  percona-data: {}
